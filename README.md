@@ -1,34 +1,67 @@
-# npm-react-typescript-template
+# Count Down React
 
-A template for publishing a React + TypeScript package to npm
+A fully customizable light weight countdown component for React using render props.
 
-## How to use
+## Getting Started
 
-Fork this repo, clone it to your local computer, and edit the `package.json` along with every other required file to match your project.
-Write the code for your package in TypeScript and Sass, compile it, and publish it to [npm](https://npmjs.com).
+You can either install the module via `npm` or `yarn`:
 
-To compile your code once, run
+```
+npm install count-down-react
+```
 
-- `npm run build`.
+```
+yarn add count-down-react
+```
 
-To compile your code once and refresh on file change, run
+### Basic Example
 
-- `npm run start`.
+A simple and example of how to set up a countdown which counts down from 10 seconds.
 
-To publish your package to npm, make sure you're logged in the correct account by running
+```js
+import React from 'react'
+import ReactDOM from 'react-dom'
+import CountDown from 'count-down-react'
 
-- `npm login`.
+const CoundownRenderer = ({ days, hours, minutes, seconds }) => (
+  <>
+    {days} d {hours} h, {minutes} m, {seconds} s
+  </>
+)
 
-Compile your package by running
+ReactDOM.render(
+  <CountDown date={Date.now() + 10000} renderer={CoundownRenderer} />,
+  document.getElementById('root')
+)
+```
 
-- `npm run build`
+## [Live Demo](https://codesandbox.io/s/count-down-ylroo)
 
-Update the package version accordingly by using
+# Properties
 
-- [`npm version [patch | minor | major]`](https://docs.npmjs.com/about-semantic-versioning)
+## date: `number | string | Date`
 
-Then publish your package by running
+date is a mandatory prop
 
-- `npm publish`
+## renderer: `function`
 
-### Happy Building ♡
+You should pass a `Component` to the renderer. The `Component` will be called with props `{days, hours, minutes, seconds, completed}`. You can use it as per your requirement
+
+## updateFrequency: `function`
+
+If you need to change the update frequency of the count down you can pass this function.
+The function will be called with `{days, hours, minutes, seconds, completed}`
+
+You should return the frequency in `milliseconds`
+
+example:
+
+```js
+<CountDown
+  date={date}
+  renderer={CoundownRenderer}
+  updateFrequency={({ minutes }) => (minutes > 10 ? 30000 : 1000)}
+/>
+```
+
+Here we are updating every 30 seconds till 10 minutes and after that every 1 seconds.
