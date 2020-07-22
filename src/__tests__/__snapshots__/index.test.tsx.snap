@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Link changes the class when hovered 1`] = `
-<div>
-  <h2>
-    Hello React Count Down 1
-  </h2>
+exports[`Count Down Component Test Suite Count Down Snapshot Test 1`] = `
+<div
+  data-testid="counter"
+>
+  0 d 0 h 0 m 6 s
 </div>
 `;

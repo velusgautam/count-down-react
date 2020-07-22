@@ -1,9 +1,28 @@
-import * as React from 'react'
+import { useState, useEffect } from 'react'
+import getTimeLeft from './get-time'
+import { CounterProps } from './index.types'
 
-const Package: React.FC = () => (
-  <div>
-    <h2>Hello React Count Down 1</h2>
-  </div>
-)
+const CountDown = ({ date, renderer, updateFrequency }: CounterProps) => {
+  if (typeof renderer !== 'function') {
+    throw new TypeError('Renderer Function is Expected')
+  }
+  if (typeof date !== 'number' || date < 0) {
+    console.error('Positive Date value expected', date)
+  }
 
-export default Package
+  const [counter, setCounter] = useState(getTimeLeft(date))
+  let updateTimer = 1000
+  if (typeof updateFrequency === 'function') {
+    updateTimer = updateFrequency(counter)
+  }
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCounter(getTimeLeft(date))
+    }, updateTimer)
+    return () => clearInterval(interval)
+  }, [date, updateTimer])
+
+  return renderer(counter)
+}
+
+export default CountDown

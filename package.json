@@ -2,9 +2,9 @@
   "name": "count-down-react",
   "version": "1.0.0",
   "description": "Light weight React Count Down with hooks",
-  "author": "ovieokeh",
+  "author": "Velu S Gautam",
   "license": "Apache-2.0",
-  "repository": "velusgautam/count-down-react",
+  "repository": "https://github.com/velusgautam/count-down-react.git",
   "main": "dist/index.js",
   "engines": {
     "node": ">=8",
@@ -13,7 +13,9 @@
   "scripts": {
     "build": "rollup -c",
     "start": "rollup -c -w",
-    "test": "jest"
+    "test": "jest",
+    "prebuild": "yarn test",
+    "postbuild": "rm -rf dist/__tests__"
   },
   "dependencies": {},
   "peerDependencies": {
@@ -21,8 +23,7 @@
     "react-dom": ">= 16.8.0 < 2"
   },
   "devDependencies": {
-    "@babel/preset-env": "^7.10.4",
-    "@babel/preset-react": "^7.10.4",
+    "@testing-library/react": "^10.4.7",
     "@types/jest": "^26.0.5",
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
