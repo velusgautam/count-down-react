@@ -1,4 +1,4 @@
-# Count Down React ![Test Package](https://github.com/velusgautam/count-down-react/workflows/Test%20Package/badge.svg) ![size](https://img.shields.io/bundlephobia/min/count-down-react) ![dependency](https://img.shields.io/librariesio/release/npm/count-down-react)
+# Count Down React ![Test Package](https://github.com/velusgautam/count-down-react/workflows/Test%20Package/badge.svg) ![size](https://img.shields.io/bundlephobia/min/count-down-react) ![dependency](https://img.shields.io/librariesio/release/npm/count-down-react) ![npm](https://img.shields.io/npm/v/count-down-react)
 
 A fully customizable light weight countdown component for React using render props written in Typescript.
 
