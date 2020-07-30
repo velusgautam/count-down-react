@@ -11,12 +11,14 @@
     "npm": ">=5"
   },
   "scripts": {
+    "lint": "prettier --write '**/*.js'",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "test": "jest",
-    "prebuild": "yarn test",
+    "prebuild": "yarn lint && yarn test ",
     "postbuild": "rm -rf dist/__tests__"
   },
+  "pre-commit": "lint",
   "dependencies": {},
   "peerDependencies": {
     "react": ">= 16.8.0 < 2",
@@ -28,10 +30,8 @@
     "@types/react": "^16.9.43",
     "@types/react-dom": "^16.9.8",
     "@types/react-test-renderer": "^16.9.2",
-    "babel-core": "^6.26.3",
-    "babel-jest": "^26.1.0",
-    "babel-runtime": "^6.26.0",
     "jest": "^26.1.0",
+    "prettier": "^2.0.5",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-test-renderer": "^16.13.1",
