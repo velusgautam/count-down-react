@@ -9,11 +9,7 @@ import { CounterProps } from './index.types'
  * @param {function} props.renderer - Render function
  * @param {function} props.updateFrequency - Update frequency function
  */
-const CountDown = ({
-  date,
-  renderer,
-  updateFrequency,
-}: CounterProps): React.Component => {
+const CountDown = ({ date, renderer, updateFrequency }: CounterProps) => {
   // throw error if renderer is not of type function
   if (typeof renderer !== 'function') {
     throw new TypeError('Renderer Function is Expected')
