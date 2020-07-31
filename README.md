@@ -69,8 +69,8 @@ example:
 <CountDown
   date={date}
   renderer={CoundownRenderer}
-  updateFrequency={({ minutes }) => (minutes > 10 ? 30000 : 1000)}
+  updateFrequency={({ minutes, seconds }) =>minutes * 60 + seconds > 600 ? 5000 : 1000}
 />
 ```
 
-Here we are updating every 30 seconds till 10 minutes and after that every 1 seconds.
+Here we are updating every 5 seconds till 10 minutes and then every 1 seconds.
