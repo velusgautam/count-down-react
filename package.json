@@ -1,6 +1,6 @@
 {
   "name": "count-down-react",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Light weight React Count Down with hooks",
   "author": "Velu S Gautam",
   "license": "Apache-2.0",
