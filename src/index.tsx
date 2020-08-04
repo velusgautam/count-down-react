@@ -15,25 +15,26 @@ const CountDown = ({ date, renderer, updateFrequency }: CounterProps) => {
     throw new TypeError('Renderer Function is Expected')
   }
 
-  const [counter, setCounter] = useState(getTimeLeft(date))
+  const timingObject = getTimeLeft(date)
+  const [, setCounter] = useState(timingObject)
   // setting default update time to 1 seconds
   let updateTimer = 1000
 
   if (typeof updateFrequency === 'function') {
-    updateTimer = updateFrequency(counter)
+    updateTimer = updateFrequency(timingObject)
   }
 
   useEffect(() => {
-    if (!counter.completed) {
+    if (!timingObject.completed) {
       const interval = setInterval(() => {
         setCounter(getTimeLeft(date))
       }, updateTimer)
       return () => clearInterval(interval)
     }
     return
-  }, [date, updateTimer, counter.completed])
+  }, [date, updateTimer, timingObject.completed])
 
-  return renderer(counter)
+  return renderer(timingObject)
 }
 
 export default CountDown

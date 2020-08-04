@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [1.0.7] - 2020-08-04
+
+### Changed
+
+- Fixed bug in milliseconds implementation [@velusgautam](https://github.com/velusgautam).
+- Fixed bug in state not updating sometimes [@velusgautam](https://github.com/velusgautam).
+
 ## [1.0.6] - 2020-07-31
 
 ### Changed

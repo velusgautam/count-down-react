@@ -43,7 +43,7 @@ const getTimeLeft = (countDownDate: number | string | Date): Time => {
     hours: Math.floor((seconds / 3600) % 24),
     minutes: Math.floor((seconds / 60) % 60),
     seconds: Math.floor(seconds % 60),
-    milliseconds: Number(((seconds % 1) * 1000).toFixed()),
+    milliseconds: total,
     completed: total <= 0,
   }
 }
