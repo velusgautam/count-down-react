@@ -4,7 +4,6 @@
 
 <a href="https://www.npmjs.com/package/count-down-react"><img src="https://github.com/velusgautam/count-down-react/workflows/Test%20Package/badge.svg" alt="Test Passing"/></a>
 <a href="https://www.npmjs.com/package/count-down-react"><img src="https://img.shields.io/bundlephobia/min/count-down-react" alt="Size"/></a>
-<a href="https://www.npmjs.com/package/count-down-react"><img src="https://img.shields.io/librariesio/release/npm/count-down-react" alt="Dependency Status"/></a>
 <a href="https://www.npmjs.com/package/count-down-react"><img src="https://img.shields.io/npm/v/count-down-react" alt="Version"/></a>
 
 <img src="https://raw.githubusercontent.com/velusgautam/count-down-react/master/assets/count-down.gif" alt="count-down" />
@@ -69,7 +68,9 @@ example:
 <CountDown
   date={date}
   renderer={CoundownRenderer}
-  updateFrequency={({ minutes, seconds }) =>minutes * 60 + seconds > 600 ? 5000 : 1000}
+  updateFrequency={({ minutes, seconds }) =>
+    minutes * 60 + seconds > 600 ? 5000 : 1000
+  }
 />
 ```
 
