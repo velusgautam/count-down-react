@@ -2,7 +2,7 @@
   "name": "count-down-react",
   "version": "1.0.9",
   "description": "Light weight React Count Down with hooks",
-  "author": "Velu S Gautam",
+  "author": "Velu S Gautam <i@velusgautam.com>",
   "license": "Apache-2.0",
   "repository": "https://github.com/velusgautam/count-down-react.git",
   "main": "dist/index.js",
