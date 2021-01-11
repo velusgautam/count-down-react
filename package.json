@@ -38,7 +38,7 @@
     "react-test-renderer": "16.13.1",
     "rollup": "2.23.0",
     "rollup-plugin-typescript2": "0.29.0",
-    "ts-jest": "26.1.4",
+    "ts-jest": "26.4.4",
     "typescript": "3.9.7"
   },
   "files": [
