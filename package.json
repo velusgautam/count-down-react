@@ -37,7 +37,7 @@
     "react-dom": "16.13.1",
     "react-test-renderer": "16.13.1",
     "rollup": "2.38.4",
-    "rollup-plugin-typescript2": "0.29.0",
+    "rollup-plugin-typescript2": "0.31.2",
     "ts-jest": "26.5.0",
     "typescript": "3.9.7"
   },
