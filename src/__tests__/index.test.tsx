@@ -1,19 +1,21 @@
 import * as React from 'react'
 import CountDown from '../index'
-import renderer from 'react-test-renderer'
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
+
+interface RendererProps {
+  days: number
+  hours: number
+  minutes: number
+  seconds: number
+  completed: boolean
+}
+
 describe('Count Down Component Test Suite', () => {
-  const CoundownRenderer = ({
+  const CountDownRenderer: React.FC<RendererProps> = ({
     days,
     hours,
     minutes,
     seconds,
-  }: {
-    days: number
-    hours: number
-    minutes: number
-    seconds: number
-    completed: boolean
   }) => {
     return (
       <div data-testid="counter">{`${days} d ${hours} h ${minutes} m ${seconds} s`}</div>
@@ -21,23 +23,30 @@ describe('Count Down Component Test Suite', () => {
   }
   const date = Date.now() + 6000
 
-  test('Count Down Snapshot Test', () => {
-    const component = renderer.create(
-      <CountDown date={date} renderer={CoundownRenderer} />
+  it('renders the countdown correctly', () => {
+    render(
+      <CountDownRenderer
+        days={1}
+        hours={2}
+        minutes={3}
+        seconds={4}
+        completed={false}
+      />
     )
-    let tree = component.toJSON()
-    expect(tree).toMatchSnapshot()
+
+    expect(screen.getByText('1 d 2 h 3 m 4 s')).toMatchSnapshot()
   })
+
   test('Test if the value of time is rendered correctly', async () => {
     const { getByText } = render(
-      <CountDown date={date} renderer={CoundownRenderer} />
+      <CountDown date={date} renderer={CountDownRenderer} />
     )
     expect(getByText(`0 d 0 h 0 m 6 s`)).toBeTruthy()
   })
 
   test('Test if the value of time is rendered with Id', async () => {
     const { getByTestId } = render(
-      <CountDown date={date} renderer={CoundownRenderer} />
+      <CountDown date={date} renderer={CountDownRenderer} />
     )
     expect(getByTestId('counter').textContent).toBe('0 d 0 h 0 m 6 s')
   })
@@ -46,7 +55,7 @@ describe('Count Down Component Test Suite', () => {
     const { getByTestId } = render(
       <CountDown
         date={date}
-        renderer={CoundownRenderer}
+        renderer={CountDownRenderer}
         updateFrequency={() => 1000}
       />
     )

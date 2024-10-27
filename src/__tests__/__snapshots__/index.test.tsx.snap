@@ -1,9 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Count Down Component Test Suite Count Down Snapshot Test 1`] = `
+exports[`Count Down Component Test Suite renders the countdown correctly 1`] = `
 <div
   data-testid="counter"
 >
-  0 d 0 h 0 m 6 s
+  1 d 2 h 3 m 4 s
 </div>
 `;

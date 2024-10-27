@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react'
 import getTimeLeft from './get-time'
-import { CounterProps } from './index.types'
+
+interface CounterProps {
+  date: number | string | Date // If you need the form to be checked initially
+  renderer: Function // OnChange value of the Switch will be toggled
+  updateFrequency?: Function
+}
 
 /**
  * Count Down Render Prop Component

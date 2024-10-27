@@ -1,22 +1,24 @@
 {
   "name": "count-down-react",
-  "version": "1.0.12",
+  "version": "2.0.0",
   "description": "Light weight React Count Down with hooks",
   "author": "Velu S Gautam <i@velusgautam.com>",
   "license": "Apache-2.0",
   "repository": "https://github.com/velusgautam/count-down-react.git",
-  "main": "dist/index.js",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.esm.js",
   "engines": {
-    "node": ">=8",
-    "npm": ">=5"
+    "node": ">=18",
+    "npm": ">=9"
   },
   "scripts": {
     "lint": "prettier --write '**/*.js'",
     "build": "rollup -c",
     "start": "rollup -c -w",
     "test": "jest",
+    "typecheck": "tsc --noEmit",
     "prepublish": "yarn build",
-    "prebuild": "yarn lint && yarn test ",
+    "prebuild": "rm -rf dist/* && yarn lint && yarn test ",
     "postbuild": "rm -rf dist/__tests__"
   },
   "pre-commit": "lint",
@@ -26,20 +28,22 @@
     "react-dom": ">= 16.8.0 < 2"
   },
   "devDependencies": {
-    "@testing-library/react": "12.1.2",
-    "@types/jest": "27.0.2",
-    "@types/react": "16.14.2",
-    "@types/react-dom": "16.9.10",
-    "@types/react-test-renderer": "17.0.0",
-    "jest": "26.2.1",
-    "prettier": "2.2.1",
-    "react": "16.13.1",
-    "react-dom": "16.13.1",
-    "react-test-renderer": "16.13.1",
-    "rollup": "2.38.4",
-    "rollup-plugin-typescript2": "0.29.0",
-    "ts-jest": "26.5.0",
-    "typescript": "3.9.7"
+    "@rollup/plugin-typescript": "^12.1.1",
+    "@testing-library/react": "^14.0.0",
+    "@types/jest": "^29.0.0",
+    "@types/node": "^18.0.0",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "jest": "^29.0.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "prettier": "^2.8.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-test-renderer": "^18.0.0",
+    "rollup": "^4.24.2",
+    "ts-jest": "^29.0.0",
+    "tslib": "^2.8.0",
+    "typescript": "^5.6.3"
   },
   "files": [
     "dist"
@@ -48,8 +52,7 @@
     "react",
     "typescript",
     "npm",
-    "count down",
     "react count down",
-    "countdown"
+    "count down component"
   ]
 }
