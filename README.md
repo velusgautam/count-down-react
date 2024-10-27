@@ -43,7 +43,7 @@ ReactDOM.render(
 )
 ```
 
-## [Live Demo](https://codesandbox.io/s/count-down-ylroo)
+## [Live Demo](https://codesandbox.io/p/sandbox/count-down-forked-95nvw6)
 
 # Properties
 
